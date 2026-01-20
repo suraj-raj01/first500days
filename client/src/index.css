@@ -1,0 +1,79 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+}
+
+body{
+    background-color: #fff;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.chart-container {
+  width: 90%;
+  max-width: 900px;
+  height: 400px; /* Fixed height to control aspect ratio */
+  margin: 30px auto;
+  padding: 15px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgb(0 0 0 / 0.1);
+  box-sizing: border-box;
+}
+
+/* Smaller height on small screens */
+@media (max-width: 600px) {
+  .chart-container {
+    height: 300px;
+  }
+}
+
+/* For very small devices */
+@media (max-width: 350px) {
+  .chart-container {
+    height: 250px;
+  }
+}
+
+.no-data-message {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #666;
+  padding: 40px 20px;
+  font-family: Arial, sans-serif;
+}
+
+
+#active4day{
+    display: flex;
+    flex-direction: column;
+}
+
+#active4day p{
+    font-weight: bold;
+    font-size: 25px;
+}
+#active4day li{
+    font-weight: 500;
+}
+
+/* Hide the native file input */
+input[type="file"] {
+  display: none;
+}
+
+/* Style the label as a button */
+#custom-file-upload {
+  display: inline-block;
+  padding: 8px 15px;
+  cursor: pointer;
+  background-color: rgb(88, 106, 244);
+  color: white;
+  border-radius: 4px;
+  font-weight: normal;
+  transition: background-color 0.3s ease;
+  /* user-select: none; */
+}
+
+#custom-file-upload:hover {
+  background-color: rgb(88, 106, 244);
+}
