@@ -12,11 +12,10 @@ connectDB();
 app.use(
     cors({
         origin: "https://first500days-cyan.vercel.app/",
-        methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+        methods: ["GET", "POST", "PUT", "DELETE"],
     })
 );
 
-app.options("*", cors());
 app.use(express.json());
 
 app.use("/api/analyze", analyzeRoute);
