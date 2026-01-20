@@ -4,6 +4,9 @@ import ChatAnalytics from '../models/ChatAnalytics.model.js';
 
 export const analyzeChat = async (req, res) => {
     try {
+        if (!req.file) {
+            return res.status(400).json({ error: "File is required" });
+        }
         const parsed = parseChat(req.file.path);
         const record = await ChatAnalytics.create({
             graphData: parsed.graphData,
