@@ -7,7 +7,10 @@ export const analyzeChat = async (req, res) => {
         if (!req.file) {
             return res.status(400).json({ error: "File is required" });
         }
-        const parsed = parseChat(req.file.path);
+        console.log("File received:", req.file?.originalname);
+        console.log("File size:", req.file?.size);
+
+        const parsed = parseChat(req.file.buffer);
         const record = await ChatAnalytics.create({
             graphData: parsed.graphData,
             active4DaysUsers: parsed.active4Days

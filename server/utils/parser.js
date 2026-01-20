@@ -1,8 +1,7 @@
-import fs from 'fs';
 import dayjs from 'dayjs';
 
-export function parseChat(filePath) {
-  const content = fs.readFileSync(filePath, 'utf-8');
+export function parseChat(buffer) {
+  const content = buffer.toString('utf-8');
   const lines = content.split('\n');
 
   const joinMap = {};
@@ -23,10 +22,8 @@ export function parseChat(filePath) {
     return { graphData: [], active4Days: [] };
   }
 
-  // ✅ Find last date in chat
   const latestDate = dayjs(allDates.sort().at(-1));
 
-  // ✅ Build last 7 days from chat, NOT today
   const last7Days = [...Array(7)].map((_, i) =>
     latestDate.subtract(i, 'day').format('YYYY-MM-DD')
   );
@@ -43,7 +40,7 @@ export function parseChat(filePath) {
 
     const message = match[2];
 
-    // JOINED
+    // Joined users
     if (message.includes('joined')) {
       const user = message.split(' ')[0];
       joinMap[date] ??= new Set();
@@ -51,7 +48,7 @@ export function parseChat(filePath) {
       continue;
     }
 
-    // MESSAGE (text or media)
+    // Active users
     const userMatch = message.match(/^(.+?):/);
     if (!userMatch) continue;
 
