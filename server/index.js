@@ -12,7 +12,17 @@ const app = express();
 connectDB();
 
 
-app.use(cors());
+/* ✅ CORS CONFIG */
+app.use(
+  cors({
+    origin: [
+      "https://first500days-cyan.vercel.app", // Vercel frontend
+    ],
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true,
+  })
+);
+
 app.use(express.json());
 
 

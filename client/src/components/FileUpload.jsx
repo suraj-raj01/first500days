@@ -1,6 +1,5 @@
 import axios from 'axios';
 
-
 export default function Upload({ onResult }) {
     const handleUpload = async (e) => {
         const file = e.target.files[0];
@@ -12,7 +11,6 @@ export default function Upload({ onResult }) {
         console.log(res.data, 'data')
         onResult(res.data);
     };
-
 
     return <label id="custom-file-upload">
         Choose File
