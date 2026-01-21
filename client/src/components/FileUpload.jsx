@@ -6,7 +6,7 @@ export default function Upload({ onResult }) {
         const formData = new FormData();
         formData.append('file', file);
 
-        const res = await axios.post('http://localhost:8000/api/analyze', formData, {
+        const res = await axios.post('https://first500days.onrender.com/api/analyze', formData, {
             headers: {
                 "Content-Type": "multipart/form-data",
             },
