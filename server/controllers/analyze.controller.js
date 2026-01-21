@@ -10,7 +10,7 @@ export const analyzeChat = async (req, res) => {
       return res.status(400).json({ error: "No file uploaded" });
     }
 
-    // const parsed = parseChat(req.file.buffer);
+    const parsed = parseChat(req.file.buffer);
 
     // console.log("Parsed data:", parsed);
 
